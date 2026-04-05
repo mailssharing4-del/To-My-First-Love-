@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Cutest Mom ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  background: #f5e6c8;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Button */
+button {
+  margin-top: 60px;
+  padding: 15px 30px;
+  font-size: 30px;
+  background: #8b5e3c;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Letter */
+.letter {
+  display: none;
+  width: 85%;
+  max-width: 550px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff8dc;
+  border: 2px solid #d2b48c;
+  box-shadow: 0 0 25px rgba(0,0,0,0.3);
+  border-radius: 12px;
+  text-align: left;
+  font-size: 25px;
+  line-height: 1.7;
+}
+
+/* Message */
+#message {
+  white-space: pre-wrap;
+}
+
+function showImages() {
+  let gallery = document.getElementById("gallery");
+  gallery.style.display = "grid";
+}
+
+/* Emojis */
+.emoji {
+  position: fixed;
+  top: -50px;
+  font-size: 24px;
+  animation: fall 6s linear;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<button onclick="openLetter()">Click on this Letter Maa 💌</button>
+
+<div id="letter" class="letter">
+  <p id="message"></p>
+
+  <!-- Images -->
+  <div class="gallery" id="gallery">
+    <img src="pic1.jpg">
+    <img src="pic2.jpg">
+    <img src="pic3.jpg">
+    <img src="pic4.png">
+  </div>
+</div>
+
+<!-- Music -->
+<audio id="music" src="song1.mp3" loop></audio>
+
+<script>
+let text = "Dear Mom 🫀\n\nThank you for everything you do for me...\nI love you sooo much 🤗\n\nI may not say it every day, but you mean everything to me 💖\n(Nenu every day ila chepakapovachu, but you are everything naaku)\n\nI WANNA BE YOUR SON IN MY EVERY BIRTH MAA 🫂";
+
+let i = 0;
+
+function openLetter() {
+  document.getElementById("letter").style.display = "block";
+  document.getElementById("music").play();
+  typeWriter();
+  setInterval(createEmoji, 300);
+
+  setTimeout(showImages, 3000);
+}
+
+function typeWriter() {
+  if (i < text.length) {
+    document.getElementById("message").innerHTML += 
+      text.charAt(i) === "\n" ? "<br>" : text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 40);
+  }
+}
+
+function showImages() {
+  let gallery = document.getElementById("gallery");
+  gallery.style.display = "block";
+
+}
+
+function createEmoji() {
+  let emoji = document.createElement("div");
+  emoji.className = "emoji";
+  emoji.innerHTML = Math.random() > 0.5 ? "❤️" : "🫂";
+
+  emoji.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(emoji);
+
+  setTimeout(() => emoji.remove(), 6000);
+}
+</script>
+
+</body>
+</html>
