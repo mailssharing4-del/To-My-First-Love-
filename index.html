@@ -7,111 +7,79 @@
 <style>
 body {
   margin: 0;
-  background: linear-gradient(to bottom, #ffe6f0, #ffccdd);
+  background: #f5e6c8;
+  font-family: 'Georgia', serif;
   text-align: center;
-  font-family: Arial;
   overflow: hidden;
 }
 
 /* Button */
 button {
+  margin-top: 60px;
   padding: 15px 30px;
   font-size: 30px;
-  background: #ff4d88;
+  background: #8b5e3c;
   color: white;
   border: none;
-  border-radius: 30px;
+  border-radius: 10px;
   cursor: pointer;
-  margin-top: 200px;
 }
 
-/* Heart Popup */
-#heartBox {
+/* Letter box */
+.letter {
   display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 300px;
-  height: 260px;
-  background: #ff6699;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  clip-path: path("M150 30 C150 -20, 300 -20, 300 80 C300 160, 150 230, 150 230 C150 230, 0 160, 0 80 C0 -20, 150 -20, 150 30 Z");
+  width: 85%;
+  max-width: 550px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #fff8dc;
+  border: 2px solid #d2b48c;
+  box-shadow: 0 0 25px rgba(0,0,0,0.3);
+  border-radius: 12px;
+  text-align: left;
+  font-size: 25px;
+  line-height: 1.7;
 }
 
-/* Images */
-img {
-  width: 200px;
-  margin: 10px;
-  display: none;
-  border-radius: 15px;
+/* Text */
+#message {
+  white-space: pre-wrap;
 }
 
 /* Floating emojis */
 .emoji {
-  position: absolute;
+  position: fixed;
+  top: -50px;
   font-size: 24px;
-  animation: float 6s linear infinite;
+  animation: fall 6s linear;
 }
 
-@keyframes float {
-  from { transform: translateY(100vh); }
-  to { transform: translateY(-10vh); }
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
 }
 </style>
 </head>
 
 <body>
 
-<button onclick="startSurprise()">Click Here Mom ❤️</button>
+<button onclick="openLetter()">Open Letter 💌</button>
 
-<!-- Heart Message -->
-<div id="heartBox">
-  <h3>I Love You Maa😅</h3>
+<div id="letter" class="letter">
   <p id="message"></p>
-  Thank you for everything ❤️‍🔥</p>
-</div>
-
-<!-- Music -->
-<audio id="music" loop>
-  <source src="song1.mp3" type="audio/mpeg">
-</audio>
-
-<!-- Images -->
-<div>
-  <img id="img1" src="pic1.jpg">
-  <img id="img2" src="pic2.jpg">
-  <img id="img3" src="pic3.jpg">
-  <img id="img4" src="pic4.png">
 </div>
 
 <script>
-function startSurprise() {
-  document.querySelector("button").style.display = "none";
-
-  // Show heart popup
-  let heart = document.getElementById("heartBox");
-  heart.style.display = "block";
-
-  // Play music
-  document.getElementById("music").play();
-  
-   typeWriter();
-
-  // Show images one by one
-  setTimeout(() => img1.style.display = "block", 2000);
-  setTimeout(() => img2.style.display = "block", 4000);
-  setTimeout(() => img3.style.display = "block", 6000);
-  setTimeout(() => img4.style.display = "block", 8000);
-
-  // Floating emojis
-  setInterval(createEmoji, 500);
-}
 let text = "Dear Mom 🫀\n\nThank you for everything you do for me...\nI love you sooo much 🤗\n\nI may not say it every day, but you mean everything to me 💖\n(Nenu every day ila chepakapovachu, but you are everything naaku)\n\nI WANNA BE YOUR SON IN MY EVERY BIRTH MAA 🫂";
 
 let i = 0;
+
+function openLetter() {
+  document.getElementById("letter").style.display = "block";
+  typeWriter();
+  setInterval(createEmoji, 300);
+}
 
 function typeWriter() {
   if (i < text.length) {
