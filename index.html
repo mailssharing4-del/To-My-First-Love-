@@ -46,6 +46,16 @@ button {
   white-space: pre-wrap;
 }
 
+.gallery {
+  display: none;
+  text-align: center;
+}
+
+.gallery img {
+  max-width: 100%;
+  border-radius: 12px;
+}
+
 function showImages() {
   let gallery = document.getElementById("gallery");
   gallery.style.display = "grid";
@@ -74,13 +84,10 @@ function showImages() {
 <div id="letter" class="letter">
   <p id="message"></p>
 
-  <!-- Images -->
-  <div class="gallery" id="gallery">
-    <img src="pic1.jpg">
-    <img src="pic2.jpg">
-    <img src="pic3.jpg">
-    <img src="pic4.png">
-  </div>
+  
+<!-- Single Image -->
+<div class="gallery" id="gallery">
+  <img src="pic1.jpg" style="width:100%; border-radius:10px; margin-top:15px;">
 </div>
 
 <!-- Music -->
