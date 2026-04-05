@@ -62,15 +62,17 @@ img {
 
 <script>
 function startSurprise() {
+  alert("Button clicked!");
+
   document.querySelector("button").style.display = "none";
   document.getElementById("content").style.display = "block";
 
   alert(`Dear Mom 🫀 Thank you for everything you do for me...
-  I love you sooo much 🤗 I may not say it every day,
-  but you mean everything to me
-  (Nenu every day ila chepakapovachu, 
-  but you are everything naaku) 💖 
-  I WANNA BE YOUR SON IN MY EVERY BIRTH MAA 🌎`);
+I love you sooo much 🤗 I may not say it every day,
+but you mean everything to me
+(Nenu every day ila chepakapovachu, 
+but you are everything naaku) 💖 
+I WANNA BE YOUR SON IN MY EVERY BIRTH MAA 🌎`);
 
   document.getElementById("music").play().catch(() => {});
 
@@ -85,7 +87,6 @@ function startSurprise() {
     }, index * 2000);
   });
 
-  // Floating emojis
   setInterval(() => {
     let emoji = document.createElement("div");
     emoji.className = "emoji";
@@ -96,6 +97,9 @@ function startSurprise() {
     setTimeout(() => emoji.remove(), 5000);
   }, 500);
 }
+
+document.getElementById("startBtn").addEventListener("click", startSurprise););
+
 </script>
 
 </body>
