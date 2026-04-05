@@ -46,20 +46,9 @@ button {
   white-space: pre-wrap;
 }
 
-/* Images */
-.gallery {
-  display: none;
-  margin-top: 20px;
-  text-align: center;
-}
-
-.gallery img {
-  width: 80%;
-  max-width: 300px;
-  border-radius: 10px;
-  margin-top: 15px;
-  display: none;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+function showImages() {
+  let gallery = document.getElementById("gallery");
+  gallery.style.display = "grid";
 }
 
 /* Emojis */
@@ -124,18 +113,6 @@ function showImages() {
   let gallery = document.getElementById("gallery");
   gallery.style.display = "block";
 
-  let imgs = gallery.getElementsByTagName("img");
-
-  let index = 0;
-  function showNext() {
-    if (index < imgs.length) {
-      imgs[index].style.display = "block";
-      index++;
-      setTimeout(showNext, 2000);
-    }
-  }
-
-  showNext();
 }
 
 function createEmoji() {
