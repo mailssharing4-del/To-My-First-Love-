@@ -65,14 +65,14 @@ function startSurprise() {
   document.querySelector("button").style.display = "none";
   document.getElementById("content").style.display = "block";
 
-  alert("Dear Mom 🫀 Thank you for everything you do for me...
-    I love you sooo much 🤗I may not say it every day,
-    but you mean everything to me
-    (Nenu every day ila chepakapovachu, 
-    but you are everything naaku)💖 I WANNA BE YOUR SON 
-    IN MY EVERY BIRTH MAA🌎");
+  alert(`Dear Mom 🫀 Thank you for everything you do for me...
+  I love you sooo much 🤗 I may not say it every day,
+  but you mean everything to me
+  (Nenu every day ila chepakapovachu, 
+  but you are everything naaku) 💖 
+  I WANNA BE YOUR SON IN MY EVERY BIRTH MAA 🌎`);
 
-  document.getElementById("music").play();
+  document.getElementById("music").play().catch(() => {});
 
   let pics = ["pic1.jpg", "pic2.jpg", "pic3.jpg", "pic4.png"];
   let container = document.getElementById("images");
