@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Cutest Mom ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  background: #ffe6f0;
+  text-align: center;
+  font-family: Arial;
+  overflow: hidden;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 30px;
+  background: #ff4d88;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 40vh;
+}
+
+#content {
+  display: none;
+}
+
+img {
+  width: 200px;
+  margin: 10px;
+  border-radius: 15px;
+}
+
+.emoji {
+  position: absolute;
+  font-size: 24px;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(100vh); }
+  to { transform: translateY(-10vh); }
+}
+</style>
+</head>
+
+<body>
+
+<button onclick="startSurprise()">Click Me Mummy❤️</button>
+
+<div id="content">
+  <h1>I Love You Maa😅</h1>
+  <p>You are my first love💖</p>
+
+  <div id="images"></div>
+</div>
+
+<audio id="music" src="song1.mp3" loop></audio>
+
+<script>
+function startSurprise() {
+  document.querySelector("button").style.display = "none";
+  document.getElementById("content").style.display = "block";
+
+  alert("Dear Mom 🫀 Thank you for everything you do for me...
+    I love you sooo much 🤗I may not say it every day,
+    but you mean everything to me
+    (Nenu every day ila chepakapovachu, 
+    but you are everything naaku)💖 I WANNA BE YOUR SON 
+    IN MY EVERY BIRTH MAA🌎");
+
+  document.getElementById("music").play();
+
+  let pics = ["pic1.jpg", "pic2.jpg", "pic3.jpg", "pic4.png"];
+  let container = document.getElementById("images");
+
+  pics.forEach((pic, index) => {
+    setTimeout(() => {
+      let img = document.createElement("img");
+      img.src = pic;
+      container.appendChild(img);
+    }, index * 2000);
+  });
+
+  // Floating emojis
+  setInterval(() => {
+    let emoji = document.createElement("div");
+    emoji.className = "emoji";
+    emoji.innerHTML = ["❤️","🫂"][Math.floor(Math.random()*2)];
+    emoji.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(emoji);
+
+    setTimeout(() => emoji.remove(), 5000);
+  }, 500);
+}
+</script>
+
+</body>
+</html>
